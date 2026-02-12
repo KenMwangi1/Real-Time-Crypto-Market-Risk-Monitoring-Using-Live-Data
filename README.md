@@ -51,6 +51,7 @@ This analysis is explicitly designed to answer questions executives actually ask
 ### 🔎 Architecture Overview
 
 <img width="252" height="488" alt="image" src="https://github.com/user-attachments/assets/360bc47c-7c15-4cbd-8aad-05a28618a53d" />
+
 _Step 1: Data Ingestion_
 
 	 i-  Live market data retrieved via CoinGecko API
