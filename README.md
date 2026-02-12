@@ -1,162 +1,171 @@
-# Processing Big Data Predict
-© Explore Data Science Academy
-
-## Student Instructions 👩‍🏫️
-This predict contains multiple notebooks that you will be required to update in order to arrive at your solution. To successfully complete this predict you will need to:
- 1. log in to your Github account;
- 2. [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repo to create your own remote copy; and
- 3. clone the forked repo on your account so you can work with the files locally on your machine.
-
-## Predict overview
-
-You are part of a small dynamic team of Data Scientists trying to create the latest and greatest automated stock market trading robots. You assume the role of a Data Engineer and is responsible for ensuring that the Data Science team has access to high-quality training datasets.
-
-<div align="center" style="width: 600px; font-size: 80%; text-align: center; margin: 0 auto">
-<img src="https://raw.githubusercontent.com/Explore-AI/Pictures/master/data_engineering/transform/predict/TradingBot.jpg"
-     alt="Trading Bot"
-     style="float: center; padding-bottom=0.5em"
-     width=50%/>
-     <p><em>Figure 1. Trading Bot</em></p>
-</div>
-
-You will need to perform data profiling, quality analysis, and testing on the ingested data to ensure that the dataset is of sufficient quality. Data quality analysis and testing have to be done in such a way as to be generic and abstracted to the level where the notebook(s) can be run for any point in time, on a regular schedule, or as part of an ingestion pipeline. 
-
-## Dataset
-
-<div align="center" style="width: 600px; font-size: 80%; text-align: center; margin: 0 auto">
-<img src="https://raw.githubusercontent.com/Explore-AI/Pictures/master/data_engineering/transform/predict/Nasdaq.png"
-     alt="Nasdaq"
-     style="float: center; padding-bottom=0.5em"
-     width=50%/>
-     <p><em>Figure 2. Nasdaq</em></p>
-</div>
-
-The data that you will be working with is a historical snapshot of market data taken from the Nasdaq electronic market. This dataset contains historical daily prices for all tickers currently trading on Nasdaq. The up-to-date list can be found on their [website](https://www.nasdaq.com/).
-
-The dataset for the predict can be found in an AWS S3 bucket called: `processing-big-data-predict-stocks-data`. The bucket contains two items:
-
-- Stock data: [stocks.zip](https://processing-big-data-predict-stocks-data.s3.eu-west-1.amazonaws.com/stocks.zip)
-- Metadata: [symbols_valid_meta.csv](https://processing-big-data-predict-stocks-data.s3.eu-west-1.amazonaws.com/symbols_valid_meta.csv)
-
-## Task 1
-You need to download the data stored in the S3 bucket and store it on your local machine.
-
-This first step in the data engineering process serves to ingest the data into a working environment which makes it available for wider use for anyone else in the Data Science team.
-
-<div align="center" style="width: 600px; font-size: 80%; text-align: center; margin: 0 auto">
-<img src="https://raw.githubusercontent.com/Explore-AI/Pictures/master/data_engineering/transform/predict/DataIngestion.jpg"
-     alt="Data Ingestion"
-     style="float: center; padding-bottom=0.5em"
-     width=40%/>
-     <p><em>Figure 3. Data Ingestion</em></p>
-</div>
-
-Typically, you will use a specific subset of the dataset to develop your ingestion, data quality and testing process. This ensures that you first create a robust process before starting on the productionisation of the process and code.
-
-In this task, you will be using the first data subset (**1962**) in the dataset as a testing set. 
-
-Some of the reasons for choosing this dataset is:
-- it is the first year within the dataset;
-- it contains a small portion of the dataset and will be very fast to develop on, while not requiring a lot of computation; and
-- since it is the oldest in the dataset, it likely contains the most errors.
-
-At the end of this task, your notebook should be able to produce parquet files for a specific year.
+## 1️⃣📊 Real-Time Market Risk Monitoring Using Live Crypto Market Data
 
 
+####                      _End-to-End Financial Risk Analysis Using Python, SQL & Power BI_
 
-### **Assessment** ⏰️
-This section is mainly concerned with the setup and ingestion of the dataset; you will be assessed using multiple-choice questions.
+## 2️⃣ Executive Summary
 
-The following actions need to be taken to complete the assessments in this section:
+This project builds a real-time market risk monitoring system using live crypto market data of 4 assets (Bitcoin (BTC), Ethereum (ETH), Binance Coin (BNB), Solana (SOL)). The objective is to assess market stability, downside exposure, liquidity conditions, and diversification effectiveness through quantitative risk metrics. 
 
-- [ ] Submit Notebook
-- [ ] Complete Data Ingestion MCQ
+Using rolling volatility, drawdown analysis, and correlation modeling, the system identifies systemic risk-off regimes and asset-level risk amplification patterns.
 
-### **Resources** 📕️
-The below resource should be used to complete the work found in this section:
+#### Key findings include:
 
-- [Data ingestion notebook](./Task1_data_ingestion/Data_ingestion_student_version.ipynb)
+- Volatility spikes precede peak drawdowns
 
-## Task 2
+- Diversification benefits weaken during stress
 
-After the data has been ingested and basic sense checks have been performed on the dataset, the next step is to ensure that we have a full view of the dataset. This does not refer to exploratory data analysis (EDA) that data scientists are typically familiar with, but rather an exploration of the dataset considering the six (or more) dimensions of data quality.
+- Bitcoin demonstrates relative resilience
 
-This ensures that we are completely aware of the data landscape, any possible flaws in the dataset, and characteristics that will have to be considered when building models or performing analytics.
+- Ethereum and Binance Coin amplify downside risk
 
-<div align="center" style="width: 600px; font-size: 80%; text-align: center; margin: 0 auto">
-<img src="https://github.com/Explore-AI/Pictures/raw/master/data_engineering/transform/predict/DataQuality.jpg"
-     alt="Data Quality"
-     style="float: center; padding-bottom=0.5em"
-     width=100%/>
-     <p><em>Figure 4. Six dimensions of data quality</em></p>
-</div>
+This project aimed to design an analytical pipeline by applying statistical methods and communicating the financial insights thereforth.
 
+## 3️⃣ Business Problem
 
+Financial markets experience periods of elevated volatility and systemic stress. Risk managers require tools that:
 
-In this section, you will be required to: 
+    - Detect rising market risk early
+    
+    - Quantify downside exposure
+    
+    - Monitor liquidity stability
+    
+    - Evaluate diversification effectiveness
 
-1. Derive summary statistics on the dataset across the six dimensions of data quality; and
-2. identify possible concerns in the data quality, and correct any issues identified. 
+Raw market prices alone are insufficient. The challenge is transforming raw time-series data into actionable risk intelligence.
 
-At the end of this task, you will be required to produce a `csv` file of all the data transformations you have made during your data quality checks.
+This analysis is explicitly designed to answer questions executives actually ask:
 
+    1. Is market risk increasing or stabilizing?
+    
+    2. How severe could downside losses be?
+    
+    3. Is liquidity sufficient to support orderly exits?
+    
+    4. Are assets behaving independently or moving together?
+    
+    5. Do current conditions resemble a risk-off regime?
 
-### **Assessment** ⏰️
-This section mainly focuses on transformations required to address the data quality issues found in the dataset. The `csv` file produced will be used to auto-grade your work. You will also be required to complete an MCQ.
+## 4️⃣ Methodology
+### 🔎 Architecture Overview
 
-The following actions need to be taken to complete the assessments in this section:
+(Insert diagram here)
 
-- [ ] Submit Notebook
-- [ ] Submit `csv` output file
-- [ ] Complete Data Profiling MCQ
+_Step 1: Data Ingestion_
 
-### **Resources** 📕️
-The below resource should be used to complete the work found in this section:
+	 i-  Live market data retrieved via CoinGecko API
 
-- [Data profiling notebook](./Task2_data_profiling/Data_profiling_student_version.ipynb)
+	ii-  5-minute ingestion interval
 
+    iii- Append-only storage for durability
 
+    iv-  UTC timestamping for consistency
 
-## Task 3
-Manually inspecting the data for characteristics and flaws is very powerful but not practical when working with production-grade datasets.
+##### (API calls were scheduled for the sweetspot of 5 minutes given free plan call limits)
+This mirrors real production trade-offs between data freshness and cost. (within quota, Sustainable, Adequate granularity for risk monitoring)
 
-Production systems have several challenges, the largest being:
-- **Size**: Incoming data can be so large that manual inspection becomes unfeasible; and
-- **Frequency**: Data can arrive at any interval, sometimes being near real-time. At which point, manual inspection would be impossible as well.
+    - Each API call returns a market snapshot
+    
+    - Snapshots are time-stamped
+    
+    - Data is appended, not overwritten
+    
+    - Repeated calls construct a true time series
+    
+    - Time series are built through accumulation, not single API calls.
 
-This can be mediated by having an automated process for monitoring data quality and performing tests every time the data gets ingested.
+_Step 2: SQL Data Modeling_
 
-In this section, you will be required to set up a generic process on which you can perform continuous data quality monitoring and testing.
+      i-  CTEs for modular transformations
 
+     ii-  Aggregate functions for volume and volatility
 
-### **Assessment** ⏰️
+    iii-  CASE statements for risk regime labeling
 
-This section will mainly focus on your ability to make use of an automated data testing tool. You will revisit the six dimensions of data quality using [Deequ](https://github.com/awslabs/deequ).
+     iv-  Rolling calculations using window functions
 
-The following actions need to be taken to complete the assessments in this section:
+      v-  Asset-level joins for consolidated analysis
 
-- [ ] Submit Notebook
-- [ ] Complete Data Testing MCQ
+_Step 3: Statistical Feature Engineering (Python)_
 
+      i- Using Pandas and NumPy:
 
-### **Resources** 📕️
-The below resource should be used to complete the work found in this section:
+     ii- Percentage returns
 
-- [Deequ data testing notebook](./Task3_automatic_data_quality_testing/Data_deequ_tests_student_version.ipynb)
+    iii- Winsorization for outlier handling
 
+     iv- Z-score normalization
 
----
+      v- Rolling standard deviation
 
-## FAQ ❓
+     vi- Correlation matrix construction
 
-This section of the repo will be periodically updated to represent common questions that may arise around its use. If you detect any problems/bugs, please [create an issue](https://help.github.com/en/github/managing-your-work-on-github/creating-an-issue), and we will do our best to resolve it as quickly as possible.
+    vii- Cumulative maximum & drawdown calculations
 
-We wish you all the best in your learning experience 🚀!
+_Step 4: Visualization & BI Layer (Power BI)_
 
-<p align='center'>
-     <img src="https://raw.githubusercontent.com/Explore-AI/Pictures/master/EDSA_logo.png"
-     alt='EDSA-logo'
-     width=450px/>
-     <br>
-</p>
+     i-  Data modeling relationships
 
+    ii-  DAX measures for volatility and risk KPIs
+
+    iii- Calculated columns for regime tagging
+
+    iv-  Interactive dashboards
+
+     v-  Liquidity vs volatility analysis
+
+    vi-  Drawdown trend monitoring
+
+## 5️⃣ Skills
+🔹 SQL
+    CTEs, Joins, CASE logic, Aggregate functions, Window functions, Time-series modeling
+
+🔹 Power BI
+    DAX measures, Calculated columns, ETL with Power Query, Data modeling, KPI dashboards, Risk visualization
+
+🔹 Python
+    Pandas, NumPy, Matplotlib / Plotly, Rolling statistics, Function modularization, Statistical normalization
+
+🔹 Financial Analytics
+    Market risk modeling, Volatility analysis, Drawdown measurement, Liquidity assessment, Correlation & diversification 
+    analysis, Risk regime identification
+
+## 6️⃣ Results & Business Recommendations
+### Key Findings
+
+    - Rising volatility acts as a leading indicator of drawdowns
+
+    - Correlations increase during stress, reducing diversification
+
+    - Ethereum and Binance Coin show higher downside sensitivity
+
+    - Liquidity remained stable during observed stress events
+
+### Business Recommendations (Next Steps)
+
+    - Implement volatility threshold alerts
+
+    - Monitor correlation spikes as diversification risk signals
+
+    - Assess asset-level risk contribution during stress periods
+
+    - Incorporate rolling volatility into portfolio monitoring frameworks
+
+### ⚠️ Limitations
+
+    - Limited Crypto-only asset scope
+
+    - Short intraday observation window
+
+    - Exchange-aggregated market data
+
+### 🚀 Future Enhancements
+
+    - PostgreSQL data storage
+
+    - Automated alerting system
+
+    - Value-at-Risk modeling
+
+    - Stress testing scenarios
