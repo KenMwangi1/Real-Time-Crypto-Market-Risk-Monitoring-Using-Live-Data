@@ -1,7 +1,7 @@
-## 1️⃣📊 Real-Time Market Risk Monitoring Using Live Crypto Market Data
+# 1️⃣📊 Real-Time Crypto Market Risk Monitoring Using Live Market Data
 
 
-####                      _End-to-End Financial Risk Analysis Using Python, SQL & Power BI_
+#                      _End-to-End Financial Risk Analysis Using Python, SQL & Power BI_
 
 ## 2️⃣ Executive Summary
 
