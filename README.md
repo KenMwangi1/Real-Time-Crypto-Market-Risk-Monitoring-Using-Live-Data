@@ -171,7 +171,7 @@ _Step 4: Visualization & BI Layer (Power BI)_
     - Stress testing scenarios
 
 	
-###👤 Author
+### 👤 Author
 
 #### Ken Mwangi 
 Data Engineer | Machine Learning Engineer | AWS Certified | Data Analyst
